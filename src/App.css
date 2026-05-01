@@ -1,38 +1,270 @@
+:root {
+  --background: #f5f7fb;
+  --panel: #ffffff;
+  --border: #d9e2ef;
+  --text: #182230;
+  --muted: #667085;
+  --primary: #2166d1;
+  --primary-dark: #174ea6;
+  --danger: #b42318;
+  --success-bg: #ecfdf3;
+  --success-text: #027a48;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
+  padding: 32px;
+}
+
+.page-header {
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 auto 24px;
+  max-width: 1180px;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+}
+
+.intro {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+  max-width: 620px;
+}
+
+.summary-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: grid;
+  gap: 4px 14px;
+  grid-template-columns: auto auto;
+  min-width: 210px;
+  padding: 18px;
+}
+
+.summary-panel strong {
+  font-size: 1.5rem;
+}
+
+.summary-panel span {
+  align-self: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.records-layout {
+  align-items: start;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+.student-form,
+.student-list {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.student-form {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  color: var(--text);
+  display: grid;
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 7px;
+}
+
+input,
+select {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font: inherit;
+  min-height: 42px;
+  padding: 9px 11px;
+  width: 100%;
+}
+
+input:disabled {
+  background: #eef2f7;
+  color: var(--muted);
+}
+
+.form-row {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-actions,
+.row-actions,
+.section-heading {
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  display: flex;
+  gap: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.form-actions {
+  margin-top: 6px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button {
+  background: var(--primary);
+  border: 0;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  min-height: 38px;
+  padding: 8px 13px;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+.secondary-button {
+  background: #e9eef6;
+  color: var(--text);
+}
+
+.secondary-button:hover {
+  background: #d9e2ef;
+}
+
+.danger-button {
+  background: #fff1f0;
+  color: var(--danger);
+}
+
+.danger-button:hover {
+  background: #ffd7d3;
+}
+
+.section-heading {
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.section-heading h2 {
+  margin-bottom: 0;
+}
+
+.section-heading span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 820px;
+  width: 100%;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 13px 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+td {
+  font-size: 0.92rem;
+}
+
+.status-pill {
+  background: var(--success-bg);
+  border-radius: 999px;
+  color: var(--success-text);
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 9px;
+}
+
+@media (max-width: 900px) {
+  .App {
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .page-header,
+  .records-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    align-items: stretch;
+    display: grid;
+  }
+}
+
+@media (max-width: 560px) {
+  .App {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 1.85rem;
+  }
+
+  .form-row,
+  .summary-panel {
+    grid-template-columns: 1fr;
   }
 }

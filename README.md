@@ -1,40 +1,49 @@
 # Student Records Manager
 
-A React and Supabase app for managing student-style records with authentication and basic CRUD workflows.
+A frontend-first React app for managing student records. The current version stores records in the browser with `localStorage`, so it can run without backend access. A Supabase or Firebase backend can be added later.
 
 ## Current Features
 
-- Email/password login through Supabase Auth
-- Reads records from a Supabase `mypojo` table
-- Create, update, and delete records
-- Stores Supabase credentials in local environment variables
+- Student record fields for ID, first name, last name, email, course, year, and status
+- Create, edit, and delete student records
+- Persistent browser storage with `localStorage`
+- Sample records for development and portfolio demos
+- Responsive foundation ready for dashboard improvements
+
+## Planned Backend Upgrade
+
+Later versions can add:
+
+- Authentication
+- Real database storage
+- Protected routes
+- User-specific records
+- Role-based access for admins and viewers
 
 ## Tech Stack
 
 - React
-- Supabase
 - Create React App
+- Browser `localStorage`
 
 ## Local Setup
 
-1. Install dependencies:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. Create a `.env` file with your Supabase details:
-
-```bash
-REACT_APP_SUPABASE_URL=your_supabase_project_url
-REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
-REACT_APP_STUDENT_ID=your_student_id
-```
-
-3. Start the app:
+Start the app:
 
 ```bash
 npm start
+```
+
+Run tests:
+
+```bash
+npm test -- --watchAll=false
 ```
 
 The app will run at `http://localhost:3000`.
